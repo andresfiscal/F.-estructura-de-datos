@@ -1,0 +1,55 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class tercero {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
+		
+		String line = br.readLine();
+		String[] numbers = line.split(",");
+		int[] array = new int[numbers.length];
+		for(int i = 0; i < numbers.length; i++)
+			array[i] = Integer.parseInt(numbers[i]);
+		
+		tercero  tercero = new tercero();
+		tercero.printArray(array);
+		tercero.proceso(array);
+		
+		
+		
+	}
+	public void printArray(int[] array) throws IOException
+	{
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		for(int i = 0; i < array.length; i++)
+			bw.write(array[i] + " "); 
+		
+		bw.write(" ");
+		bw.flush();
+	}
+	public void proceso(int[] array)
+	{
+		for(int i = 0; i < array.length; i++)
+		{
+			for(int j = 0; j < array.length; j++)
+			{
+				if(array[i] == array[j] && i != j) 
+				{
+					array[i] = -1;
+					array[j] = -1;
+				}
+			}
+		}
+		for(int i = 0; i < array.length; i++)
+		{
+				if(array[i] != -1)
+					System.out.println("numero diferente: "+ array[i]);
+		}	
+	}
+}
