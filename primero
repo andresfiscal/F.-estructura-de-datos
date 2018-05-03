@@ -1,0 +1,32 @@
+public class primero {
+	public static void main (String[]Args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		String line = br.readLine();
+		String[] numbers = line.split(",");
+		int array[] = new int [numbers.length];
+		
+		for (int i =0 ; i < numbers.length; i++)
+			array[i] = Integer.parseInt(numbers[i]);
+		int k;
+		int resta=0, count=0;
+		bw.write("Digite el numero k que desea: \n");
+		bw.flush();
+		k = Integer.parseInt(br.readLine());
+		try 
+		{
+			for(int i= 0; i<array.length;i++) {
+				for(int j = 0; j < array.length ; j++) {
+					if (i!=j) 
+						resta = array[i] - array[j];
+					if(resta == k)
+						count += 1;
+					}
+			}
+			System.out.println(cont);
+		}
+		catch(Exception ex) {}
+		numero1 n1 = new numero1();
+	}
+}
